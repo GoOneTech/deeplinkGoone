@@ -5,16 +5,37 @@
     "
   ></a>
   <script>
-    function isAppLinkPresent() {
-      var metaTags = document.getElementsByTagName("meta");
-      for (var i = 0; i < metaTags.length; i++) {
-        if (metaTags[i].getAttribute("property") === "al:android:url") {
-          return true;
+    function isAppInstalled(scheme) {
+      var iframe = document.createElement("iframe");
+      iframe.style.display = "none";
+      iframe.src = scheme + "://";
+      document.body.appendChild(iframe);
+
+      setTimeout(function () {
+        document.body.removeChild(iframe);
+      }, 100);
+
+      return true; // Assume the app is installed
+    }
+
+    function isDeepLinkPresent(scheme) {
+      var anchorTags = document.getElementsByTagName("a");
+      for (var i = 0; i < anchorTags.length; i++) {
+        var href = anchorTags[i].getAttribute("href");
+        if (href && href.indexOf(scheme) === 0) {
+          if (isAppInstalled(scheme)) {
+            return true;
+          }
         }
       }
       return false;
     }
-    if (isAppLinkPresent()) {
+
+    if (
+      isDeepLinkPresent(
+        "https://support.goone.tech/blogs/?id=123&category=Go_Taxi"
+      )
+    ) {
       window.location.href =
         "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
     } else {
@@ -26,8 +47,8 @@
     // setTimeout(() => {
     // alert(document.visibilityState)
     //   if (document.visibilityState === "visible") {
-    //     window.location.href =
-    //       "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
+    // window.location.href =
+    //   "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
     //   }
     // }, 4000);
   </script>
