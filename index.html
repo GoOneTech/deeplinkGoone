@@ -5,35 +5,37 @@
     "
   ></a>
   <script>
-     function checkAppLinkingApp() {
-        var isAppPresent = false;
-        var timeout = 2000; // 2 seconds timeout
+    function checkAppLinkingApp() {
+      var isAppPresent = false;
+      var timeout = 2000; // 2 seconds timeout
 
-        var iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = 'https://support.goone.tech/blogs/?id=123&category=Go_Taxi';
+      var iframe = document.createElement("iframe");
+      iframe.style.display = "none";
+      iframe.src = "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
 
-        var timer = setTimeout(function() {
-            document.body.removeChild(iframe);
-            if (!isAppPresent) {
-                window.location.href =
-        "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
-            }
-        }, timeout);
+      var timer = setTimeout(function () {
+        document.body.removeChild(iframe);
+        if (!isAppPresent) {
+          //         window.location.href =
+          // "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
+          alert("app not present");
+        }
+      }, timeout);
 
-        iframe.onload = function() {
-            clearTimeout(timer);
-            isAppPresent = true;
-            document.body.removeChild(iframe);
-            window.location.href =
-        "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
-        };
+      iframe.onload = function () {
+        clearTimeout(timer);
+        isAppPresent = true;
+        document.body.removeChild(iframe);
+        alert("appnot present");
+        //     window.location.href =
+        // "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
+      };
 
-        document.body.appendChild(iframe);
+      document.body.appendChild(iframe);
     }
 
     checkAppLinkingApp();
-   
+
     //  window.location.href =
     //       "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
     // setTimeout(() => {
