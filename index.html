@@ -5,43 +5,35 @@
     "
   ></a>
   <script>
-    function isAppInstalled(scheme) {
-      var iframe = document.createElement("iframe");
-      iframe.style.display = "none";
-      iframe.src = scheme + "://";
-      document.body.appendChild(iframe);
+     function checkAppLinkingApp() {
+        var isAppPresent = false;
+        var timeout = 2000; // 2 seconds timeout
 
-      setTimeout(function () {
-        document.body.removeChild(iframe);
-      }, 100);
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = 'https://support.goone.tech/blogs/?id=123&category=Go_Taxi';
 
-      return true; // Assume the app is installed
-    }
-
-    function isDeepLinkPresent(scheme) {
-      var anchorTags = document.getElementsByTagName("a");
-      for (var i = 0; i < anchorTags.length; i++) {
-        var href = anchorTags[i].getAttribute("href");
-        if (href && href.indexOf(scheme) === 0) {
-          if (isAppInstalled(scheme)) {
-            return true;
-          }
-        }
-      }
-      return false;
-    }
-
-    if (
-      isDeepLinkPresent(
-        "https://support.goone.tech/blogs/?id=123&category=Go_Taxi"
-      )
-    ) {
-      window.location.href =
-        "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
-    } else {
-      window.location.href =
+        var timer = setTimeout(function() {
+            document.body.removeChild(iframe);
+            if (!isAppPresent) {
+                window.location.href =
         "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
+            }
+        }, timeout);
+
+        iframe.onload = function() {
+            clearTimeout(timer);
+            isAppPresent = true;
+            document.body.removeChild(iframe);
+            window.location.href =
+        "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
+        };
+
+        document.body.appendChild(iframe);
     }
+
+    checkAppLinkingApp();
+   
     //  window.location.href =
     //       "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
     // setTimeout(() => {
