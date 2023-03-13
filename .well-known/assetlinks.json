@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.goonetech.v1.goone",
+      "sha256_cert_fingerprints":
+        ["59:6E:42:46:0A:45:F5:5A:5D:53:3E:D6:74:CF:AC:11:2F:A4:49:FD:2D:23:42:73:E9:29:6D:5A:11:AF:59:D4"]
+    }
+  }
+]
