@@ -1,19 +1,17 @@
 <a
   href="https://support.goone.tech/blogs/?id=123&category=Go_Taxi"
-  target="_blank"
-  rel="noopener noreferrer"
   on-click="launchApp('myapp://mycontent');"
-  id="my-link"
   >Take me to the asset links!</a
 >
 <script>
-    function launchApp(url) {
-    alert('vikkkiii')
-  window.location.href = url;
-  setTimeout(function() {
-    if (document.visibilityState !== 'visible') {
-      window.location.href = 'https://play.google.com/store/apps/details?id=com.goonetech.v1.goone';
-    }
-  }, 500);
-}
+  function launchApp(url) {
+    alert("vikkkiii");
+    window.location.href = url;
+    setTimeout(function () {
+      if (document.visibilityState !== "visible") {
+        window.location.href =
+          "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
+      }
+    }, 500);
+  }
 </script>
