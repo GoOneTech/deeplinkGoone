@@ -1,16 +1,14 @@
-<a
-  onclick="launchApp('https://support.goone.tech/blogs/?id=123&category=Go_Taxi')"
-  >Take me to the asset links!</a
->
+<!DOCTYPE html>
+<html lang="en">
 <script>
-  function launchApp(url) {
-    console.log("vikkkiii");
-    window.location.href = url;
+  console.log("vikkkiii");
+    window.location.href = "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
     setTimeout(function () {
       if (document.visibilityState !== "visible") {
         window.location.href =
           "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
       }
     }, 500);
-  }
 </script>
+</html>
+
