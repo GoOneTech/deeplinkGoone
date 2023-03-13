@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>
-   
-    setTimeout( ()=> {
-    window.location.href = "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
+  <a
+    href="movers.html
+    "
+  ></a>
+  <script>
+    setTimeout(() => {
+    console.log(document.visibilityState)
       if (document.visibilityState !== "visible") {
         window.location.href =
           "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
+      } else {
+        window.location.href =
+          "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
       }
     }, 500);
-</script>
+  </script>
 </html>
-
