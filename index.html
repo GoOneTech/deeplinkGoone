@@ -1,1 +1,22 @@
-<a id="my-link" href="https://support.goone.tech/blogs/?id=123&category=Go_Taxi">Take me to the asset links!</a>
+<a
+  href="https://support.goone.tech/blogs/?id=123&category=Go_Taxi"
+  target="_blank"
+  rel="noopener noreferrer"
+  on-click="launchApp('myapp://deeplink');"
+  id="my-link"
+  >Take me to the asset links!</a
+>
+<script>
+    function launchApp(url) {
+  // Try to launch the app with the custom URL scheme
+  window.location.href = url;
+  
+  // Wait for a few milliseconds before checking if the app was launched
+  setTimeout(function() {
+    // If the app did not launch, redirect to the app store
+    if (document.visibilityState !== 'visible') {
+      window.location.href = 'https://play.google.com/store/apps/details?id=com.goonetech.v1.goone';
+    }
+  }, 500);
+}
+</script>
