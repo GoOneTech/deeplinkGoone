@@ -5,15 +5,30 @@
     "
   ></a>
   <script>
-    setTimeout(() => {
-    console.log(document.visibilityState)
-      if (document.visibilityState !== "visible") {
-        window.location.href =
-          "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
-      } else {
-        window.location.href =
-          "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
+    function isAppLinkPresent() {
+      var metaTags = document.getElementsByTagName("meta");
+      for (var i = 0; i < metaTags.length; i++) {
+        if (metaTags[i].getAttribute("property") === "al:android:url") {
+          return true;
+        }
       }
-    }, 500);
+      return false;
+    }
+    if (isAppLinkPresent()) {
+      window.location.href =
+        "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
+    } else {
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
+    }
+    //  window.location.href =
+    //       "https://support.goone.tech/blogs/?id=123&category=Go_Taxi";
+    // setTimeout(() => {
+    // alert(document.visibilityState)
+    //   if (document.visibilityState === "visible") {
+    //     window.location.href =
+    //       "https://play.google.com/store/apps/details?id=com.goonetech.v1.goone";
+    //   }
+    // }, 4000);
   </script>
 </html>
